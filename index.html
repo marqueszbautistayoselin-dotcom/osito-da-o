@@ -9,29 +9,33 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background: radial-gradient(circle, #2a0a2a 0%, #050505 100%);
             font-family: 'Georgia', serif;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
+        /* Marco adaptable */
         .phone-frame {
             position: relative;
-            width: 850px;
-            height: 450px;
+            width: 90%;
+            max-width: 850px;
+            min-height: 450px;
             background-color: #0a0a0a;
             border: 5px solid #ff007f;
             border-radius: 40px;
             box-shadow: 0 0 30px #ff007f, inset 0 0 20px #ff007f;
             display: flex;
+            flex-direction: row; /* En PC uno al lado del otro */
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
             gap: 40px;
+            box-sizing: border-box;
         }
 
-        /* OSITO - COLORES VIVOS Y LÍNEAS MARCADAS */
+        /* OSITO VIVO */
         .bear-container {
             position: relative;
             width: 200px;
@@ -39,152 +43,96 @@
             flex-shrink: 0;
         }
         .bear-head {
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 110px;
-            height: 100px;
-            background: #cd611e;
-            border: 3px solid #5d2906;
-            border-radius: 50% 50% 45% 45%;
-            z-index: 10;
+            position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
+            width: 110px; height: 100px; background: #cd611e; border: 3px solid #5d2906;
+            border-radius: 50% 50% 45% 45%; z-index: 10;
         }
         .ear {
-            position: absolute;
-            width: 38px;
-            height: 38px;
-            background: #cd611e;
-            border: 3px solid #5d2906;
-            border-radius: 50%;
-            top: -8px;
-            z-index: -1;
+            position: absolute; width: 38px; height: 38px; background: #cd611e; border: 3px solid #5d2906; border-radius: 50%; top: -8px; z-index: -1;
         }
-        .ear.left { left: -8px; }
-        .ear.right { right: -8px; }
-        .ear::after {
-            content: ''; position: absolute;
-            width: 22px; height: 22px;
-            background: #f7b27a;
-            border-radius: 50%;
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-        }
+        .ear.left { left: -8px; } .ear.right { right: -8px; }
+        .ear::after { content: ''; position: absolute; width: 22px; height: 22px; background: #f7b27a; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         .eye { position: absolute; top: 40px; width: 10px; height: 10px; background: #222; border-radius: 50%; }
-        .eye.left { left: 28px; }
-        .eye.right { right: 28px; }
+        .eye.left { left: 28px; } .eye.right { right: 28px; }
         .eye::before { content: ''; position: absolute; top: 2px; left: 2px; width: 3px; height: 3px; background: white; border-radius: 50%; }
-        
         .muzzle { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 45px; height: 35px; background: #ffe0bd; border-radius: 50%; }
         .nose { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 12px; height: 8px; background: #333; border-radius: 40%; }
-        
         .bear-body { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); width: 130px; height: 120px; background: #cd611e; border: 3px solid #5d2906; border-radius: 50% 50% 42% 42%; z-index: 5; }
         .belly { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 85px; height: 90px; background: #ffe0bd; border-radius: 50%; }
-        
         .limb { position: absolute; background: #cd611e; border: 3px solid #5d2906; border-radius: 50%; z-index: 4; }
         .hand { width: 40px; height: 40px; top: 125px; }
-        .hand.left { left: 10px; transform: rotate(-25deg); }
-        .hand.right { right: 10px; transform: rotate(25deg); }
-        
-        .foot { width: 50px; height: 45px; bottom: 20px; display: flex; align-items: center; justify-content: center; }
-        .foot.left { left: 15px; }
-        .foot.right { right: 15px; }
-        .foot::after { content: ''; width: 25px; height: 25px; background: #f7b27a; border-radius: 50%; }
+        .hand.left { left: 10px; transform: rotate(-25deg); } .hand.right { right: 10px; transform: rotate(25deg); }
+        .foot { width: 50px; height: 45px; bottom: 20px; }
+        .foot.left { left: 15px; } .foot.right { right: 15px; }
+        .foot::after { content: ''; width: 25px; height: 25px; background: #f7b27a; border-radius: 50%; position: absolute; top: 10px; left: 12px; }
 
-        /* CARTA REALZADA */
+        /* CARTA */
         .interaction-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            display: flex; flex-direction: column; align-items: center; gap: 20px;
         }
-
-        .envelope-wrapper {
-            position: relative;
-            width: 240px;
-            height: 160px;
-            z-index: 20;
-        }
-
+        .envelope-wrapper { position: relative; width: 240px; height: 160px; z-index: 20; }
         .envelope {
-            position: relative;
-            width: 100%; height: 100%;
-            background: #fff;
-            border-radius: 0 0 12px 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            z-index: 10;
+            position: relative; width: 100%; height: 100%; background: #fff; border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 10;
         }
-
         .envelope::before {
             content: ''; position: absolute; top: 0; left: 0;
             border-left: 120px solid transparent; border-right: 120px solid transparent;
-            border-top: 95px solid #f0f0f0;
-            transform-origin: top; transition: transform 0.5s ease;
-            z-index: 30;
+            border-top: 95px solid #f0f0f0; transform-origin: top; transition: transform 0.5s ease; z-index: 30;
         }
-
         .letter {
             position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-            width: 220px; height: 140px;
-            background: #fffdf5;
-            padding: 25px;
-            box-sizing: border-box;
-            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 5; opacity: 0;
-            border-radius: 5px;
-            border: 1px solid #eee;
+            width: 220px; height: 140px; background: #fffdf5; padding: 25px; box-sizing: border-box;
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 5; opacity: 0; border-radius: 5px;
         }
-
         .envelope-wrapper.open .envelope::before { transform: rotateX(180deg); z-index: 1; }
         
         .envelope-wrapper.open .letter {
-            transform: translateX(160px) translateY(-80px) scale(1.1);
-            width: 350px;
-            height: 320px;
-            opacity: 1;
-            z-index: 40;
+            transform: translateX(0) translateY(-140px) scale(1); /* Ajustado para móviles */
+            width: 300px; height: 350px; opacity: 1; z-index: 40;
             box-shadow: 0 0 50px rgba(255, 255, 255, 0.5), 10px 10px 30px rgba(0,0,0,0.5);
         }
 
-        #lyrics-text { 
-            white-space: pre-line; 
-            color: #2c3e50; 
-            font-size: 16px; 
-            line-height: 1.6;
-            font-weight: 600;
-        }
+        #lyrics-text { white-space: pre-line; color: #2c3e50; font-size: 15px; line-height: 1.5; font-weight: 600; }
 
-        .heart-btn {
-            font-size: 60px;
-            color: #ff0000;
-            cursor: pointer;
-            filter: drop-shadow(0 0 15px #ff0000);
-            animation: pulse 1.2s infinite;
-            z-index: 100;
-        }
-
+        .heart-btn { font-size: 60px; color: #ff0000; cursor: pointer; filter: drop-shadow(0 0 15px #ff0000); animation: pulse 1.2s infinite; z-index: 100; }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        /* --- AJUSTES PARA CELULAR --- */
+        @media (max-width: 768px) {
+            .phone-frame {
+                flex-direction: column; /* Apilar elementos verticalmente */
+                min-height: auto;
+                height: auto;
+                padding: 30px 10px;
+                gap: 20px;
+                border-radius: 20px;
+            }
+            .envelope-wrapper.open .letter {
+                width: 280px; /* Más angosto para el cel */
+                height: 380px;
+                transform: translateX(-50%) translateY(-200px) scale(1); /* Centrado absoluto */
+                left: 50%;
+            }
+            .bear-container { transform: scale(0.9); }
+            #lyrics-text { font-size: 14px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="phone-frame">
-    <!-- OSITO -->
     <div class="bear-container">
         <div class="bear-head">
-            <div class="ear left"></div>
-            <div class="ear right"></div>
-            <div class="eye left"></div>
-            <div class="eye right"></div>
+            <div class="ear left"></div><div class="ear right"></div>
+            <div class="eye left"></div><div class="eye right"></div>
             <div class="muzzle"><div class="nose"></div></div>
         </div>
         <div class="bear-body"><div class="belly"></div></div>
-        <div class="hand left limb"></div>
-        <div class="hand right limb"></div>
-        <div class="foot left limb"></div>
-        <div class="foot right limb"></div>
+        <div class="hand left limb"></div><div class="hand right limb"></div>
+        <div class="foot left limb"></div><div class="foot right limb"></div>
     </div>
 
-    <!-- CARTA INTERACTIVA -->
     <div class="interaction-area">
         <div class="envelope-wrapper" id="envelope">
             <div class="envelope">
@@ -202,36 +150,18 @@
 <script>
     const envelope = document.getElementById('envelope');
     const textElement = document.getElementById('lyrics-text');
-    
-    const lyrics = `¿Por qué se siente tan extraño
-Llegar y no sentir tus labios?
-Quiero tenerte al lado mío
-Te juro que a veces ya no sonrío...
+    const lyrics = `¿Por qué se siente tan extraño\nLlegar y no sentir tus labios?\nQuiero tenerte al lado mío\nTe juro que a veces ya no sonrío...\n\nVen, dame la mano\nVámonos de este mundo extraño\nLlené de lágrimas el paño\nTe amo...`;
 
-Ven, dame la mano
-Vámonos de este mundo extraño
-Llené de lágrimas el paño
-Te amo...`;
-
-    let index = 0;
-    let isTyping = false;
-    let typeInterval;
+    let index = 0; let isTyping = false; let typeInterval;
 
     function toggleLetter() {
         if (envelope.classList.contains('open')) {
             envelope.classList.remove('open');
             clearInterval(typeInterval);
-            setTimeout(() => {
-                textElement.innerHTML = "";
-                index = 0;
-                isTyping = false;
-            }, 600);
+            setTimeout(() => { textElement.innerHTML = ""; index = 0; isTyping = false; }, 600);
         } else {
             envelope.classList.add('open');
-            if (!isTyping) {
-                isTyping = true;
-                setTimeout(typeWriter, 800);
-            }
+            if (!isTyping) { isTyping = true; setTimeout(typeWriter, 800); }
         }
     }
 
